@@ -9,15 +9,6 @@
 </head>
 <body>
   <script>
-   navigator.mediaDevices.getUserMedia({ audio: true })
-      .then(function(stream) {
-        console.log('You let me use your mic!')
-		alert('You let me use your mic!')
-      })
-      .catch(function(err) {
-        console.log('No mic for you!')
-		alert('No mic for you!')
-      });
     
     window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
 	
@@ -28,6 +19,16 @@
 	  console.log('speech recognition API not supported')
 	  alert('speech recognition API not supported')
 	}
+	  
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(function(stream) {
+        console.log('You let me use your mic!')
+		alert('You let me use your mic!')
+      })
+      .catch(function(err) {
+        console.log('No mic for you!')
+		alert('No mic for you!')
+      });
 	
     let finalTranscript = '';
     let recognition = new window.SpeechRecognition();
