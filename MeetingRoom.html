@@ -52,6 +52,10 @@
 		  margin: 10px 2px;
 		  cursor: pointer;
 		}
+		
+		.button.active{
+		background-color: green;
+		}
 
 </style>
 
@@ -220,6 +224,7 @@
    </br>
    <p class="Occupancy">
    <label for="Occupancy">Occupancy: </label>
+   
    <p id="shortDate1">: </p> 
    <button class="button" id="button" name="button" value="1" type="button" onclick='CallBack(this)'>1 hr</button> 
 				<button class="button" id="button" name="button" value="2" type="button" onclick='CallBack(this)'>2 hr</button>
@@ -381,6 +386,15 @@ for (i = 0; i < acc.length; i++) {
   // test date is properly formatted
   <!-- alert('desired format: ' + shortDate); -->
 
+
+</script>
+
+<script>
+var btn = document.getElementById('button');
+btn.addEventListener("touchstart",
+function(){
+btn.classList.add("active");
+});
 
 </script>
 
