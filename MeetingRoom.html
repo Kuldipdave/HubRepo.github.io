@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <!-- <link rel="stylesheet" type="text/css" href="css/demo.css"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/jquery.accordion.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.accordion.css">
 
   </head>
   <style>
@@ -60,6 +60,38 @@
 </style>
 
 <style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.Agenda * {
+  vertical-align: middle;
+}
+</style>
+
+<style>
         .formBox{
             padding: 0.5rem 2rem;
         }
@@ -79,10 +111,98 @@
    @2021 Wipro Ltd
 </div>
    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+   <button class="accordion">Discussion Room</button>
 
-<form action="insert.php" method="POST">
- 
- </br>
+<div class="panel">
+  <form>
+  </br>
+  <li>4 People</li>
+  <li>White Board</li>
+  <li>T con Equipment</li>
+  </br>
+  
+  <p>Location: <select id="location">
+            <option>India-Bangalore-EC4-T17-4th Flr-Rose</option>
+            <option>India-Bangalore-EC4-T17-5th Flr-Lily</option>
+            <option>India-Bangalore-EC4-T17-6th Flr-Blossom</option>
+            <option>India-Bangalore-EC4-T17-10th Flr-Cool</option>
+            <option>India-Bangalore-EC4-T17-11th Flr-Discuss</option>
+        </select></p> 
+
+   </br>
+   <p>Occupancy: </p> 
+   </br>
+   <p class="Agenda">
+   <label for="textarea">Agenda & Who: </label>
+   <textarea id="textarea" rows="2"></textarea></p>  
+  </div>
+  </form>
+
+<button class="accordion">Meeting Room</button>
+<div class="panel">
+<form>
+  </br>
+  <li>6 People</li>
+  <li>White Board</li>
+  <li>T con Equipment</li>
+  <li>V con Equipment(4K Screen)</li>
+  <li>Working Lunch Enabled</li>
+  </br>
+  
+  <p>Location: <select id="location">
+            <option>India-Bangalore-EC4-T17-4th Flr-Rose</option>
+            <option>India-Bangalore-EC4-T17-5th Flr-Lily</option>
+            <option>India-Bangalore-EC4-T17-6th Flr-Blossom</option>
+            <option>India-Bangalore-EC4-T17-10th Flr-Cool</option>
+            <option>India-Bangalore-EC4-T17-11th Flr-Discuss</option>
+        </select></p> 
+
+   </br>
+   <p>Occupancy: </p> 
+   </br>
+   <p class="Agenda">
+   <label for="textarea">Agenda & Who: </label>
+   <textarea id="textarea" rows="2"></textarea></p>  
+  </div>
+  </form>
+
+<button class="accordion">Conference Room</button>
+<div class="panel">
+<form>
+  </br>
+  <li>10 People</li>
+  <li>White Board</li>
+  <li>T con Equipment</li>
+  <li>V con Equipment(4K Screen)</li>
+  <li>Working Lunch Enabled</li>
+  <li>4K Display</li>
+  
+  </br>
+  
+  <p>Location: <select id="location">
+            <option>India-Bangalore-EC4-T17-4th Flr-Rose</option>
+            <option>India-Bangalore-EC4-T17-5th Flr-Lily</option>
+            <option>India-Bangalore-EC4-T17-6th Flr-Blossom</option>
+            <option>India-Bangalore-EC4-T17-10th Flr-Cool</option>
+            <option>India-Bangalore-EC4-T17-11th Flr-Discuss</option>
+        </select></p> 
+
+   </br>
+   <p>Occupancy: </p> 
+   </br>
+   <p class="Agenda">
+   <label for="Agenda">Agenda & Who</label>
+   <input type="text" id="Agenda" placeholder="Meeting & Participants Name"/></p>  
+    <div class="formBox">
+            <button id="btn">Submit</button>
+        </div>
+  </div>
+  </form>
+
+<button class="accordion">Board Room</button>
+<div class="panel">
+<form>
+  </br>
   <li>12 People</li>
   <li>White Board</li>
   <li>T con Equipment</li>
@@ -92,28 +212,20 @@
   <li>Projector screen available</li>
  
   </br>
-  <table cellpadding="5" cellspacing="5">
-   <tr>
-    <td>Location :</td>
-	<td>
-     <select name="Location" required>
-      <option>India-Bangalore-EC4-T17-4th Flr-Rose</option>
-      <option>India-Bangalore-EC4-T17-5th Flr-Lily</option>
-      <option>India-Bangalore-EC4-T17-6th Flr-Blossom</option>
-      <option>India-Bangalore-EC4-T17-10th Flr-Cool</option>
-      <option>India-Bangalore-EC4-T17-11th Flr-Discuss</option>
-     </select>
-    </td>
-   </tr>
+  
+  <p>Location: <select id="location">
+            <option>India-Bangalore-EC4-T17-4th Flr-Rose</option>
+            <option>India-Bangalore-EC4-T17-5th Flr-Lily</option>
+            <option>India-Bangalore-EC4-T17-6th Flr-Blossom</option>
+            <option>India-Bangalore-EC4-T17-10th Flr-Cool</option>
+            <option>India-Bangalore-EC4-T17-11th Flr-Discuss</option>
+        </select></p> 
 
+   </br>
+   <p class="Occupancy">
+   <label for="Occupancy">Occupancy: </label>
    
-   <tr>
-    <!-- <td>Occupancy :</td> -->
-	<!-- <br> -->
-	
-    <td> Occupancy :
-	<br>
-	<p id="shortDate1">: </p> 
+   <p id="shortDate1">: </p> 
    <button class="button" id="button" name="button" value="1" type="button" onclick='CallBack(this)'>1 hr</button> 
 				<button class="button" id="button" name="button" value="2" type="button" onclick='CallBack(this)'>2 hr</button>
 				<button class="button" id="button" name="button" value="3" type="button" onclick='CallBack(this)'>3 hr</button>
@@ -195,23 +307,27 @@
 				<button class="button" id="button" name="button" value="6" type="button" onclick='CallBack(this)'>6 hr</button>
 				<button class="button" id="button" name="button" value="7" type="button" onclick='CallBack(this)'>7 hr</button>
 				<button class="button" id="button" name="button" value="8" type="button" onclick='CallBack(this)'>8 hr</button>
-				</br></p>
-		</td>
-   </tr>
+				</br>
+   </p>
    
-   
-   
-   <tr>
-    <td>Agenda & Who :</td>
-    <td><input type="text" id="Agenda" placeholder="Meeting & Participants Name"/ required></td>
-   </tr>
-   <tr>
-    <td><input type="submit" value="Submit"></td>
-   </tr>
-  </table>
- </form>
- 
- <script>
+	</br>
+   </br>
+   <p class="Agenda">
+   <label for="Agenda">Agenda & Who</label>
+   <input type="text" id="Agenda" placeholder="Meeting & Participants Name"/></p>  
+    <div class="formBox">
+            <button id="btn">Submit</button>
+        </div>
+  </div>
+  </form>
+  
+  <!-- <div id="msg"> -->
+            <!-- <pre></pre> -->
+        <!-- </div> -->
+  
+
+
+<script>
 var acc = document.getElementsByClassName("accordion");
 var i;
 
@@ -281,6 +397,36 @@ btn.classList.add("active");
 });
 
 </script>
+
+
+
+
+<!-- <script> -->
+        <!-- let MeetingRoomBooking = []; -->
+ 
+        <!-- const AddMeetingRoom = (ev)=>{ -->
+            <!-- ev.preventDefault();  //to stop the form submitting -->
+            <!-- let MeetingRoom = { -->
+                <!-- id: Date.now(), -->
+                <!-- location: document.getElementById('location').value, -->
+                <!-- Agenda: document.getElementById('Agenda').value -->
+            <!-- } -->
+            <!-- MeetingRoomBooking.push(MeetingRoom); -->
+            <!-- document.forms[0].reset(); // to clear the form for the next entries -->
+            <!-- //document.querySelector('form').reset(); -->
+
+            <!-- //for display purposes only -->
+            <!-- console.warn('added' , {MeetingRoomBooking} ); -->
+            <!-- let pre = document.querySelector('#msg pre'); -->
+            <!-- pre.textContent = '\n' + JSON.stringify(MeetingRoomBooking, '\t', 2); -->
+
+            <!-- //saving to localStorage -->
+            <!-- localStorage.setItem('MyMeetingRoom', JSON.stringify(MeetingRoomBooking) ); -->
+        <!-- } -->
+        <!-- document.addEventListener('DOMContentLoaded', ()=>{ -->
+            <!-- document.getElementById('btn').addEventListener('click', AddMeetingRoom); -->
+        <!-- }); -->
+    <!-- </script> -->
 
 </body>
 </html>
