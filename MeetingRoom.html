@@ -437,7 +437,7 @@ $('#btnShow').click(function () {
     $.each($('#place li.' + settings.selectedSeatCss + ' a, #place li.'+ settings.selectingSeatCss + ' a'), function (index, value) {
         str.push($(this).attr('title'));
     });
-    alert(str.join(','));
+    alert("Your selected slot is for : " + str.join(','));
 })
  
 $('#btnShowNew').click(function () {
@@ -446,7 +446,7 @@ $('#btnShowNew').click(function () {
         item = $(this).attr('title');                   
         str.push(item);                   
     });
-    alert(str.join(','));
+    alert("Your all selected slots are for : " + str.join(','));
 })
 
 
