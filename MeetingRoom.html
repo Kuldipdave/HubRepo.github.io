@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+     <script src= 
+		"https://kit.fontawesome.com/a6e2755b4d.js" 
+         crossorigin="anonymous"> 
+        </script> 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -123,18 +127,18 @@ font-size:0.6em;
 background-color:yellow;      
 } 
 #place .seat{
-background:url("./available_seat_img.gif") no-repeat scroll 0 0 transparent;
+background:url("img/available_seat_img.gif") no-repeat scroll 0 0 transparent;
 height:33px;
 width:33px;
 display:block;   
 }
 #place .selectedSeat
 { 
-background-image:url("./booked_seat_img.gif");          
+background-image:url("img/booked_seat_img.gif");          
 }
 #place .selectingSeat
 { 
-background-image:url("./selected_seat_img.gif");        
+background-image:url("img/selected_seat_img.gif");        
 }
 #place .row-3, #place .row-4{
 margin-top:10px;
@@ -149,6 +153,13 @@ float:left;
 
 
 </style>
+
+<style> 
+            .center { 
+                text-align: center; 
+                width: 100%; 
+            } 
+</style> 
 
 <body>
   
@@ -277,17 +288,25 @@ float:left;
 
    </br>
    <p class="Occupancy">
+   
    <label for="Occupancy">Occupancy: </label>
-   <!-- <h2>Choose seats by clicking the corresponding seat in the layout below:</h2> -->
-    <div id="holder"> 
+   <br>
+	<!-- <p id="shortDate1">: </p> -->
+	<div class ="full-date">
+	<i class='fas fa-angle-left center' id="prev" \></i>
+	<div id="date" style="width:200px; margin:0 auto;"></div>
+	<i class='fas fa-angle-right center' id="next" ></i>
+	</div>
+
+    <div id="holder" style="width:200px; margin:0 auto;"> 
         <ul  id="place">
         </ul>    
     </div>
     <div style="float:left;"> 
     <ul id="seatDescription">
-        <li style="background:url('./available_seat_img.gif') no-repeat scroll 0 0 transparent;">Available Slot</li>
-        <li style="background:url('./booked_seat_img.gif') no-repeat scroll 0 0 transparent;">Booked Slot</li>
-        <li style="background:url('./selected_seat_img.gif') no-repeat scroll 0 0 transparent;">Selected Slot</li>
+        <li style="background:url('img/available_seat_img.gif') no-repeat scroll 0 0 transparent;">Available Seat</li>
+        <li style="background:url('img/booked_seat_img.gif') no-repeat scroll 0 0 transparent;">Booked Seat</li>
+        <li style="background:url('img/selected_seat_img.gif') no-repeat scroll 0 0 transparent;">Selected Seat</li>
     </ul>
     </div>
         <div style="clear:both;width:100%">
@@ -329,59 +348,59 @@ for (i = 0; i < acc.length; i++) {
 }
 </script>
 
-<script>
+<!-- <script> -->
 
 
-// fiddle to complement an answer on stackoverflow 
-// http://stackoverflow.com/a/39904542/3377049
+<!-- // fiddle to complement an answer on stackoverflow  -->
+<!-- // http://stackoverflow.com/a/39904542/3377049 -->
 
-  // dateObj can be a javascript formatted date saved elsewhere from another time not being now
-  // or current time, as below
-  var dateObj = new Date();
-  console.log(dateObj)
-  // test date is stored to dateObj
-  <!-- alert('javascript date format: ' + dateObj); -->
-  // make month 2 digits (09 instead of 9) months are 0 based so note the +1
-  var monthNames = ["January", "February", "March", "April", "May","June","July", "August", "September", "October", "November","December"];
-  console.log("The current month is " + monthNames[dateObj.getMonth()]);
-  var month = (monthNames[dateObj.getMonth()]);
-  <!-- var month = ('0' + (dateObj.getMonth() + 1)).slice(-2); -->
-  // make date 2 digits
-  <!-- var date = ('0' + dateObj.getDate()).slice(-2); -->
+  <!-- // dateObj can be a javascript formatted date saved elsewhere from another time not being now -->
+  <!-- // or current time, as below -->
+  <!-- var dateObj = new Date(); -->
+  <!-- console.log(dateObj) -->
+  <!-- // test date is stored to dateObj -->
+  <!-- //alert('javascript date format: ' + dateObj); -->
+  <!-- // make month 2 digits (09 instead of 9) months are 0 based so note the +1 -->
+  <!-- var monthNames = ["January", "February", "March", "April", "May","June","July", "August", "September", "October", "November","December"]; -->
+  <!-- console.log("The current month is " + monthNames[dateObj.getMonth()]); -->
+  <!-- var month = (monthNames[dateObj.getMonth()]); -->
+  <!-- //var month = ('0' + (dateObj.getMonth() + 1)).slice(-2); -->
+  <!-- // make date 2 digits -->
+  <!-- //var date = ('0' + dateObj.getDate()).slice(-2); -->
   <!-- var date = dateObj.getDate(); -->
-  // get 4 digit year
-  var year = dateObj.getFullYear();
-  // concatenate into desired arrangement
-  var shortDate1 = dateObj.getDate() + ' ' + month + ' ' + year;
-  var shortDate2 = dateObj.getDate() + 1 + ' ' + month + ' ' + year;
-  var shortDate3 = dateObj.getDate() + 2 + ' ' + month + ' ' + year;
-  var shortDate4 = dateObj.getDate() + 3 + ' ' + month + ' ' + year;
-  var shortDate5 = dateObj.getDate() + 4 + ' ' + month + ' ' + year;
-  var shortDate6 = dateObj.getDate() + 5 + ' ' + month + ' ' + year;
-  var shortDate7 = dateObj.getDate() + 6 + ' ' + month + ' ' + year;
+  <!-- // get 4 digit year -->
+  <!-- var year = dateObj.getFullYear(); -->
+  <!-- // concatenate into desired arrangement -->
+  <!-- var shortDate1 = dateObj.getDate() + ' ' + month + ' ' + year; -->
+  <!-- var shortDate2 = dateObj.getDate() + 1 + ' ' + month + ' ' + year; -->
+  <!-- var shortDate3 = dateObj.getDate() + 2 + ' ' + month + ' ' + year; -->
+  <!-- var shortDate4 = dateObj.getDate() + 3 + ' ' + month + ' ' + year; -->
+  <!-- var shortDate5 = dateObj.getDate() + 4 + ' ' + month + ' ' + year; -->
+  <!-- var shortDate6 = dateObj.getDate() + 5 + ' ' + month + ' ' + year; -->
+  <!-- var shortDate7 = dateObj.getDate() + 6 + ' ' + month + ' ' + year; -->
   
   
-  document.getElementById("shortDate1").innerHTML = shortDate1.bold();
-  document.getElementById("shortDate2").innerHTML = shortDate2.bold();
-  document.getElementById("shortDate3").innerHTML = shortDate3.bold();
-  document.getElementById("shortDate4").innerHTML = shortDate4.bold();
-  document.getElementById("shortDate5").innerHTML = shortDate5.bold();
-  document.getElementById("shortDate6").innerHTML = shortDate6.bold();
-  document.getElementById("shortDate7").innerHTML = shortDate7.bold();
-  // test date is properly formatted
+  <!-- document.getElementById("shortDate1").innerHTML = shortDate1.bold(); -->
+  <!-- document.getElementById("shortDate2").innerHTML = shortDate2.bold(); -->
+  <!-- document.getElementById("shortDate3").innerHTML = shortDate3.bold(); -->
+  <!-- document.getElementById("shortDate4").innerHTML = shortDate4.bold(); -->
+  <!-- document.getElementById("shortDate5").innerHTML = shortDate5.bold(); -->
+  <!-- document.getElementById("shortDate6").innerHTML = shortDate6.bold(); -->
+  <!-- document.getElementById("shortDate7").innerHTML = shortDate7.bold(); -->
+  <!-- // test date is properly formatted -->
   <!-- alert('desired format: ' + shortDate); -->
 
 
-</script>
+<!-- </script> -->
 
-<script>
-var btn = document.getElementById('button');
-btn.addEventListener("touchstart",
-function(){
-btn.classList.add("active");
-});
+<!-- <script> -->
+<!-- var btn = document.getElementById('button'); -->
+<!-- btn.addEventListener("touchstart", -->
+<!-- function(){ -->
+<!-- btn.classList.add("active"); -->
+<!-- }); -->
 
-</script>
+<!-- </script> -->
 
 <script>
 
@@ -419,7 +438,7 @@ var init = function (reservedSeat) {
             //init();
  
             //Case II: If already booked
-            var bookedSeats = [5, 10, 24];
+            var bookedSeats = [5, 10, 23];
             init(bookedSeats);
 
 
@@ -437,7 +456,7 @@ $('#btnShow').click(function () {
     $.each($('#place li.' + settings.selectedSeatCss + ' a, #place li.'+ settings.selectingSeatCss + ' a'), function (index, value) {
         str.push($(this).attr('title'));
     });
-    alert("Your selected slot is for : " + str.join(','));
+    alert(str.join(','));
 })
  
 $('#btnShowNew').click(function () {
@@ -446,8 +465,53 @@ $('#btnShowNew').click(function () {
         item = $(this).attr('title');                   
         str.push(item);                   
     });
-    alert("Your all selected slots are for : " + str.join(','));
+    alert(str.join(','));
 })
+
+
+</script>
+
+<script>
+
+var myDate = new Date(),
+    year = myDate.getFullYear(),
+    month = myDate.getMonth(),
+    day = myDate.getDay(),
+    date = myDate.getDate()
+    
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+var days = ["Sunday", "Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+var dates = ["0","1st", "2nd","3rd","4th","5th","6th","7th","8th","9th","10th","11th","12th","13th", "14th", "15th", "16th", "17th", "18th", "19th",
+    "20th", "21st", "22th", "23rd", "24th", "25th", "26th", "27th", "28th", "29th", "30th", "31st"]
+    
+    
+var dateText = days[day]+ "," + " "+ dates[date] + " " + " " + months[month] +  " "  + year
+document.getElementById("date").innerText = dateText;
+  
+  document.getElementById("next").addEventListener("click", next);
+  document.getElementById("prev").addEventListener("click", prev);
+  
+function next() {
+   myDate =new Date(myDate.getFullYear(),myDate.getMonth(),myDate.getDate()+1);
+   //myDate = new Date(myDate + 86400000);
+    year = myDate.getFullYear(),
+    month = myDate.getMonth(),
+    day = myDate.getDay(),
+    date = myDate.getDate();
+    var dateText = days[day]+ "," + " "+ dates[date] + " " + " " + months[month] +  " "  + year
+document.getElementById("date").innerHTML = dateText;
+    
+}
+
+function prev() {
+  myDate = new Date(myDate - 86400000);
+  year = myDate.getFullYear(),
+  month = myDate.getMonth(),
+  day = myDate.getDay(),
+  date = myDate.getDate();
+  var dateText = days[day]+ "," + " "+ dates[date] + " "+ " " + months[month] +  " "  + year
+  document.getElementById("date").innerHTML = dateText;
+}
 
 
 </script>
