@@ -127,18 +127,18 @@ font-size:0.6em;
 background-color:yellow;      
 } 
 #place .seat{
-background:url("./available_seat_img.gif") no-repeat scroll 0 0 transparent;
+background:url("img/available_seat_img.gif") no-repeat scroll 0 0 transparent;
 height:33px;
 width:33px;
 display:block;   
 }
 #place .selectedSeat
 { 
-background-image:url("./booked_seat_img.gif");          
+background-image:url("img/booked_seat_img.gif");          
 }
 #place .selectingSeat
 { 
-background-image:url("./selected_seat_img.gif");        
+background-image:url("img/selected_seat_img.gif");        
 }
 #place .row-3, #place .row-4{
 margin-top:5px;
@@ -297,6 +297,7 @@ float:left;
 	<div id="date" style="width:200px; margin:0 auto;"></div>
 	<i class='fas fa-angle-right center' id="next" ></i>
 	</div>
+	<br>
 
     <div id="holder" style="width:220px; margin:0 auto;"> 
         <ul  id="place">
@@ -304,23 +305,25 @@ float:left;
     </div>
     <div style="float:left;"> 
     <ul id="seatDescription">
-        <li style="background:url('./available_seat_img.gif') no-repeat scroll 0 0 transparent;">Available Seat</li>
-        <li style="background:url('./booked_seat_img.gif') no-repeat scroll 0 0 transparent;">Booked Seat</li>
-        <li style="background:url('./selected_seat_img.gif') no-repeat scroll 0 0 transparent;">Selected Seat</li>
+        <li style="background:url('img/available_seat_img.gif') no-repeat scroll 0 0 transparent;">Available Seat</li>
+        <li style="background:url('img/booked_seat_img.gif') no-repeat scroll 0 0 transparent;">Booked Seat</li>
+        <li style="background:url('img/selected_seat_img.gif') no-repeat scroll 0 0 transparent;">Selected Seat</li>
     </ul>
     </div>
-        <div style="clear:both;width:100%">
-        <input type="button" id="btnShowNew" value="Show Selected Seats" />
-        <input type="button" id="btnShow" value="Show All" />           
-        </div>
+        <!-- <div style="clear:both;width:100%"> -->
+        <!-- <input type="button" id="btnShowNew" value="Show Selected Seats" /> -->
+        <!-- <input type="button" id="btnShow" value="Show All" />            -->
+        <!-- </div> -->
    
 	</br>
    </br>
    <p class="Agenda">
    <label for="Agenda">Agenda & Who</label>
-   <input type="text" id="Agenda" placeholder="Meeting & Participants Name"/></p>  
+   <input type="text" id="AgendaText" placeholder="Meeting & Participants Name"/></p>  
+   
     <div class="formBox">
-            <button id="btn">Submit</button>
+            <input type="button" id="btnShowNew" value="Show Selected Seats" />
+			<input type="button" id="btnShow" value="Submit" />  
         </div>
   </div>
   </form>
@@ -404,7 +407,6 @@ for (i = 0; i < acc.length; i++) {
 
 <script>
 
-
 var settings = {
                rows: 4,
                cols: 6,
@@ -438,35 +440,45 @@ var init = function (reservedSeat) {
             //init();
  
             //Case II: If already booked
-            var bookedSeats = [5, 10, 23];
+			<!-- var bookedSeats = [5 + "hr", 10 + "hr", 24 + "hr"]; -->
+            var bookedSeats = [5, 10, 24];
             init(bookedSeats);
 
 
-$('.' + settings.seatCss).click(function () {
-if ($(this).hasClass(settings.selectedSeatCss)){
-    alert('This seat is already reserved');
-}
-else{
-    $(this).toggleClass(settings.selectingSeatCss);
-    }
-});
- 
-$('#btnShow').click(function () {
-    var str = [];
-    $.each($('#place li.' + settings.selectedSeatCss + ' a, #place li.'+ settings.selectingSeatCss + ' a'), function (index, value) {
-        str.push($(this).attr('title'));
-    });
-    alert(str.join(','));
-})
- 
-$('#btnShowNew').click(function () {
-    var str = [], item;
-    $.each($('#place li.' + settings.selectingSeatCss + ' a'), function (index, value) {
-        item = $(this).attr('title');                   
-        str.push(item);                   
-    });
-    alert(str.join(','));
-})
+			$('.' + settings.seatCss).click(function () {
+			if ($(this).hasClass(settings.selectedSeatCss)){
+				alert('This seat is already reserved');
+			}
+			else{
+				$(this).toggleClass(settings.selectingSeatCss);
+				}
+			});
+			
+
+			 
+			$('#btnShow').click(function () {
+			    	
+				var AgendaValue = document.getElementById("AgendaText").value;
+				var str = [];
+				$.each($('#place li.' + settings.selectedSeatCss + ' a, #place li.'+ settings.selectingSeatCss + ' a'), function (index, value) {
+					str.push($(this).attr('title'));
+				});
+				alert("The Slot is booked successfully for: " + (str.join(',') + " regarding " + AgendaValue));
+				window.location = './MeetingRoomBooking1.html';
+				<!-- alert( "The Slot you booked is for : " + str.join(',')); -->
+			})
+			 
+			$('#btnShowNew').click(function () {
+			    	
+				var AgendaValue = document.getElementById("AgendaText").value;
+				var str = [], item;
+				$.each($('#place li.' + settings.selectingSeatCss + ' a'), function (index, value) {
+					item = $(this).attr('title');                   
+					str.push(item);                   
+				});
+				alert( "The Slot you booked is for : " + str.join(','));
+				<!-- alert("The Slot is booked successfully for: " + (str.join(',') + " regarding " + AgendaValue)); -->
+			})
 
 
 </script>
