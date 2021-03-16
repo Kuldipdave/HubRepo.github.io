@@ -311,7 +311,7 @@ float:left;
     <div style="float:left;"> 
     <ul id="seatDescription">
         <li style="background:url('./available_seat_img.gif') no-repeat scroll 0 0 transparent;">Available Slot</li>
-        <li style="background:url('./booked_seat_img.gif') no-repeat scroll 0 0 transparent;">Booked Slot</li>
+       <!-- <li style="background:url('./booked_seat_img.gif') no-repeat scroll 0 0 transparent;">Booked Slot</li>-->
         <li style="background:url('./selected_seat_img.gif') no-repeat scroll 0 0 transparent;">Selected Slot</li>
     </ul>
     </div>
@@ -328,7 +328,9 @@ float:left;
    
     <div class="formBox">
             <input type="button" id="btnShowNew" value="Show Selected Slot" />
-			<input type="button" id="btnShow" value="Submit" />  
+	    <input type="button" id="btnShow" value="Submit" />  
+	    <br>
+	    <br>
         </div>
   </div>
   </form>
@@ -469,7 +471,7 @@ var init = function (reservedSeat) {
 					str.push($(this).attr('title'));
 				});
 				alert("The Slot is booked successfully for: " + (str.join(',') + " regarding " + AgendaValue));
-				window.location = './MeetingRoomBooking1.html';
+				window.location = './MeetingRoom.html';
 				<!-- alert( "The Slot you booked is for : " + str.join(',')); -->
 			})
 			 
