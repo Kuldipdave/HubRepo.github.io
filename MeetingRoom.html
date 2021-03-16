@@ -127,18 +127,18 @@ font-size:0.6em;
 background-color:yellow;      
 } 
 #place .seat{
-background:url("./available_seat_img.gif") no-repeat scroll 0 0 transparent;
+background:url("img/available_seat_img.gif") no-repeat scroll 0 0 transparent;
 height:33px;
 width:33px;
 display:block;   
 }
 #place .selectedSeat
 { 
-background-image:url("./booked_seat_img.gif");          
+background-image:url("img/booked_seat_img.gif");          
 }
 #place .selectingSeat
 { 
-background-image:url("./selected_seat_img.gif");        
+background-image:url("img/selected_seat_img.gif");        
 }
 #place .row-3, #place .row-4{
 margin-top:5px;
@@ -278,7 +278,7 @@ float:left;
  
   </br>
   
-  <p>Location: <select id="location">
+  <p><b>Location: </b><select id="location">
             <option>India-Bangalore-EC4-T17-4th Flr-Rose</option>
             <option>India-Bangalore-EC4-T17-5th Flr-Lily</option>
             <option>India-Bangalore-EC4-T17-6th Flr-Blossom</option>
@@ -289,25 +289,30 @@ float:left;
    </br>
    <p class="Occupancy">
    
-   <label for="Occupancy">Occupancy: </label>
+   <label for="Occupancy"><b>Occupancy: </b></label>
    <br>
 	<!-- <p id="shortDate1">: </p> -->
 	<div class ="full-date">
-	<i class='fas fa-angle-left center' id="prev" \></i>
+	<a><i class='fas fa-angle-left center' id="prev" \></i>
 	<div id="date" style="width:200px; margin:0 auto;"></div>
-	<i class='fas fa-angle-right center' id="next" ></i>
+	<i class='fas fa-angle-right center' id="next" ></i></a>
 	</div>
 	<br>
+   
+   <label for="appt-time" style = "position:relative; left:60px; top:2px;"><b>Start Time:-</b> </label>
+   <input id="appt-time" type="time" name="appt-time" value="" style = "position:relative; left:70px; top:2px;">
+   
+   <br></br>
 
-    <div id="holder" style="width:220px; margin:0 auto;"> 
+	<div id="holder" style="width:220px; margin:0 auto;"> 
         <ul  id="place">
         </ul>    
     </div>
     <div style="float:left;"> 
     <ul id="seatDescription">
-        <li style="background:url('./available_seat_img.gif') no-repeat scroll 0 0 transparent;">Available Slot</li>
-        <!-- <li style="background:url('./booked_seat_img.gif') no-repeat scroll 0 0 transparent;">Booked Slot</li>-->
-        <li style="background:url('./selected_seat_img.gif') no-repeat scroll 0 0 transparent;">Selected Slot</li>
+        <li style="background:url('img/available_seat_img.gif') no-repeat scroll 0 0 transparent;">Available Slot</li>
+        <li style="background:url('img/booked_seat_img.gif') no-repeat scroll 0 0 transparent;">Booked Slot</li>
+        <li style="background:url('img/selected_seat_img.gif') no-repeat scroll 0 0 transparent;">Selected Slot</li>
     </ul>
     </div>
         <!-- <div style="clear:both;width:100%"> -->
@@ -318,19 +323,15 @@ float:left;
 	</br>
    </br>
    <p class="Agenda">
-   <label for="Agenda">Agenda & Who</label>
+   <label for="Agenda"><b>Agenda & Who</b></label>
    <input type="text" id="AgendaText" placeholder="Meeting & Participants Name"/></p>  
    
     <div class="formBox">
             <input type="button" id="btnShowNew" value="Show Selected Slot" />
-	    <input type="button" id="btnShow" value="Submit" />  
-	    </br>
-	    </br>
+			<input type="button" id="btnShow" value="Submit" />  
         </div>
   </div>
   </form>
-</br>
-</br>
   
   <!-- <div id="msg"> -->
             <!-- <pre></pre> -->
@@ -468,7 +469,7 @@ var init = function (reservedSeat) {
 					str.push($(this).attr('title'));
 				});
 				alert("The Slot is booked successfully for: " + (str.join(',') + " regarding " + AgendaValue));
-				window.location = './MeetingRoom.html';
+				window.location = './MeetingRoomBooking1.html';
 				<!-- alert( "The Slot you booked is for : " + str.join(',')); -->
 			})
 			 
@@ -515,7 +516,7 @@ function next() {
     day = myDate.getDay(),
     date = myDate.getDate();
     var dateText = days[day]+ "," + " "+ dates[date] + " " + " " + months[month] +  " "  + year
-document.getElementById("date").innerHTML = dateText;
+    document.getElementById("date").innerHTML = dateText;
     
 }
 
@@ -529,8 +530,9 @@ function prev() {
   document.getElementById("date").innerHTML = dateText;
 }
 
-
 </script>
+
+
 
 
 
