@@ -30,7 +30,7 @@
 	<div class = "container-fluid">	
 		<ul class = "nav nav-pills">
 			<li><a href = "home.php">Home</a></li>
-			<li><a href = "account.php">Accounts</a></li>
+			<li class = "active"><a href = "account.php">Accounts</a></li>
 			<li><a href = "reserve.php">Reservation</a></li>
 			<li><a href = "room.php">Room</a></li>			
 		</ul>	
@@ -39,33 +39,33 @@
 	<div class = "container-fluid">
 		<div class = "panel panel-default">
 			<div class = "panel-body">
-				<div class = "alert alert-info">Transaction / Room</div>
-				<a class = "btn btn-success" href = "add_room.php"><i class = "glyphicon glyphicon-plus"></i> Add Room</a>
+				<div class = "alert alert-info">Accounts</div>
+				<a class = "btn btn-success" href = "add_account.php"><i class = "glyphicon glyphicon-plus"></i> Create New Account</a>
 				<br />
 				<br />
 				<table id = "table" class = "table table-bordered">
 					<thead>
 						<tr>
-							<th>Room Type</th>
-							<th>Price</th>
-							<th>Photo</th>
+							<th>Name</th>
+							<th>Username</th>
+							<th>Password</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
-					<?php
-						$query = $conn->query("SELECT * FROM `room`") or die(mysqli_error());
-						while($fetch = $query->fetch_array()){
-					?>	
+						<?php  
+							$query = $conn->query("SELECT * FROM `admin`") or die(mysqli_error());
+							while($fetch = $query->fetch_array()){
+						?>
 						<tr>
-							<td><?php echo $fetch['room_type']?></td>
-							<td><?php echo $fetch['price']?></td>
-							<td><center><img src = "../photo/<?php echo $fetch['photo']?>" height = "50" width = "50"/></center></td>
-							<td><center><a class = "btn btn-warning" href = "edit_room.php?room_id=<?php echo $fetch['room_id']?>"><i class = "glyphicon glyphicon-edit"></i> Edit</a> <a class = "btn btn-danger" onclick = "confirmationDelete(this); return false;" href = "delete_room.php?room_id=<?php echo $fetch['room_id']?>"><i class = "glyphicon glyphicon-remove"></i> Delete</a></center></td>
+							<td><?php echo $fetch['name']?></td>
+							<td><?php echo $fetch['username']?></td>
+							<td><?php echo md5($fetch['password'])?></td>
+							<td><center><a class = "btn btn-warning" href = "edit_account.php?admin_id=<?php echo $fetch['admin_id']?>"><i class = "glyphicon glyphicon-edit"></i> Edit</a> <a class = "btn btn-danger" onclick = "confirmationDelete(this); return false;" href = "delete_account.php?admin_id=<?php echo $fetch['admin_id']?>"><i class = "glyphicon glyphicon-remove"></i> Delete</a></center></td>
 						</tr>
-					<?php
-						}
-					?>	
+						<?php
+							}
+						?>
 					</tbody>
 				</table>
 			</div>

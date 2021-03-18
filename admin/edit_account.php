@@ -30,7 +30,7 @@
 	<div class = "container-fluid">	
 		<ul class = "nav nav-pills">
 			<li><a href = "home.php">Home</a></li>
-			<li><a href = "account.php">Accounts</a></li>
+			<li class = "active"><a href = "account.php">Accounts</a></li>
 			<li><a href = "reserve.php">Reservation</a></li>
 			<li><a href = "room.php">Room</a></li>			
 		</ul>	
@@ -39,35 +39,32 @@
 	<div class = "container-fluid">
 		<div class = "panel panel-default">
 			<div class = "panel-body">
-				<div class = "alert alert-info">Transaction / Room</div>
-				<a class = "btn btn-success" href = "add_room.php"><i class = "glyphicon glyphicon-plus"></i> Add Room</a>
+				<div class = "alert alert-info">Account / Change Account</div>
+				<?php
+					$query = $conn->query("SELECT * FROM `admin` WHERE `admin_id` = '$_REQUEST[admin_id]'") or die(mysqli_error());
+					$fetch = $query->fetch_array();
+				?>
 				<br />
-				<br />
-				<table id = "table" class = "table table-bordered">
-					<thead>
-						<tr>
-							<th>Room Type</th>
-							<th>Price</th>
-							<th>Photo</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody>
-					<?php
-						$query = $conn->query("SELECT * FROM `room`") or die(mysqli_error());
-						while($fetch = $query->fetch_array()){
-					?>	
-						<tr>
-							<td><?php echo $fetch['room_type']?></td>
-							<td><?php echo $fetch['price']?></td>
-							<td><center><img src = "../photo/<?php echo $fetch['photo']?>" height = "50" width = "50"/></center></td>
-							<td><center><a class = "btn btn-warning" href = "edit_room.php?room_id=<?php echo $fetch['room_id']?>"><i class = "glyphicon glyphicon-edit"></i> Edit</a> <a class = "btn btn-danger" onclick = "confirmationDelete(this); return false;" href = "delete_room.php?room_id=<?php echo $fetch['room_id']?>"><i class = "glyphicon glyphicon-remove"></i> Delete</a></center></td>
-						</tr>
-					<?php
-						}
-					?>	
-					</tbody>
-				</table>
+				<div class = "col-md-4">	
+					<form method = "POST" action = "edit_query_account.php?admin_id=<?php echo $fetch['admin_id']?>">
+						<div class = "form-group">
+							<label>Name </label>
+							<input type = "text" class = "form-control" value = "<?php echo $fetch['name']?>" name = "name" />
+						</div>
+						<div class = "form-group">
+							<label>Username </label>
+							<input type = "text" class = "form-control" value = "<?php echo $fetch['username']?>" name = "username" />
+						</div>
+						<div class = "form-group">
+							<label>Password </label>
+							<input type = "password" class = "form-control" value = "<?php echo $fetch['password']?>" name = "password" />
+						</div>
+						<br />
+						<div class = "form-group">
+							<button name = "edit_account" class = "btn btn-warning form-control"><i class = "glyphicon glyphicon-edit"></i> Save Changes</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -79,20 +76,4 @@
 </body>
 <script src = "../js/jquery.js"></script>
 <script src = "../js/bootstrap.js"></script>
-<script src = "../js/jquery.dataTables.js"></script>
-<script src = "../js/dataTables.bootstrap.js"></script>	
-<script type = "text/javascript">
-	function confirmationDelete(anchor){
-		var conf = confirm("Are you sure you want to delete this record?");
-		if(conf){
-			window.location = anchor.attr("href");
-		}
-	} 
-</script>
-
-<script type = "text/javascript">
-	$(document).ready(function(){
-		$("#table").DataTable();
-	});
-</script>
 </html>
