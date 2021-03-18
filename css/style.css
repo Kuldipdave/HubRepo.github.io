@@ -1,1 +1,18 @@
+body
+{
+width:90%;
+margin:auto;
+min-width:400px;
+max-width:150px;
+}
+
+
+#menu{
+	list-style-type:none;
+	font-size:18px;
+}
+
+#menu li{
+	display:inline;
+}
 
